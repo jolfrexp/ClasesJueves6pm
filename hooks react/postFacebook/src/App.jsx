@@ -7,8 +7,6 @@ function App() {
 
   return (
     <>
-      <ListComents></ListComents>
-      <FormComent></FormComent>
       <Post></Post>
     </>
   )
