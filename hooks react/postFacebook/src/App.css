@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.container-post{
+  width: 20% ;
+  margin: 0 auto;
+
+  background-color: rgb(231, 231, 231);
+
+}
+h1{
+  margin-left: 50%;
+}
+.containerimg{
+  width: 5%;
+}
+.containerimg img{
+  width: 100%;
+}
+.containerimg2{
+  width: 100%;
+}
+.containerimg2 img{
+  width: 100%;
+}
+.post-footer{
+  display: flex;
+}
+button{
+  width: 50%;
+}
