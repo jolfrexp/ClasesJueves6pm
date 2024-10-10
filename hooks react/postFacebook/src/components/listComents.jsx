@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import perfil from "../assets/img/perfil.png"
 
 export default function ListComents(props) {
-
   return (
     <div>
       <div className='comentario'>
@@ -18,6 +17,7 @@ export default function ListComents(props) {
       <h6 className="hora-pub">{props.time}</h6>
       <h6>like</h6>
       <h6>coment</h6>
+      <h6>{props.id}</h6>
       </div>
     </div>
   )

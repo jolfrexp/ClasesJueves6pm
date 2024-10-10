@@ -1,32 +1,44 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import ListComents from './listComents'
+import { ListComentarios } from '../App'
+
 export default function FormComent() {
+  var LC = useContext(ListComentarios)
   const [comment, setComment] = useState("")
   const [commentsList, setCommentsList] = useState([])
-  const handleCommentChange = (event) => {
+  useEffect(() => {
+               setCommentsList(LC) 
+                },[])
+  useEffect(() => {
+                  console.log(commentsList)
+                   },[commentsList])
+
+  const ChangeInput = (event) => {
     setComment(event.target.value)
   };
   const addComment = () => {
     if(comment.trim() != ""){
-      setCommentsList([...commentsList,comment])
+      setCommentsList([...commentsList, {user:"Invitado",
+        cont : comment,
+        time : "Hace un momento"
+      }])
       setComment("")
-      console.log(commentsList)
     }
   }
   return (
     <div>
       <ul>
-        {commentsList.map((com, index) => (
+        {commentsList.map((commentsList, index) => (
         <ListComents key = {index}
-          user = "Desconocido"
-          cont = {com}
-          time = "hace un momento"
+          user = {commentsList.user}
+          cont = {commentsList.cont}
+          time = {commentsList.time}
         />))}
       </ul>
       <div className='input-coment'>
-      <input type="text" value={comment} onChange={handleCommentChange} className='form-comentario' placeholder='Comentar...' />
-      <button onClick={addComment}>comentar</button>
+      <input type="text" value={comment} onChange={ChangeInput} className='form-comentario' placeholder='Comentar...' />
+      <button onClick={addComment}><h6>comentar</h6></button>
       
       </div>
     </div>

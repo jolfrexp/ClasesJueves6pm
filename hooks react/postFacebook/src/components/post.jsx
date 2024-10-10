@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import likes from "../assets/img/like.png"
 import coment from "../assets/img/coment.png"
 import FormComent from './formComent'
-import ListComents from './listComents'
 export default function Post() {
+
     const [like, setLike] = useState(1234)
     const [mostrar, setMostar] = useState(false)
     const [blue, setBlue] = useState(false)
+
     function touchlike(){
       if(!blue){
       setLike((like) => like + 1)
@@ -17,8 +18,11 @@ export default function Post() {
       setBlue((blue) => false)
     }
     }
+      useEffect(() => {
+                  console.log("Cantidad de likes: " + like)
+                  console.log("Like?: " + blue)              
 
-    console.log(like)
+                              },[like,blue])
   return (
     <div>
       <div className="container-post">
@@ -37,26 +41,11 @@ export default function Post() {
         </div>
         <p>{like} like's</p>
         <div className='buttons'>
-            <button style={{"background-color": blue && "blue",
+            <button style={{"background-color": blue && "#0015FF",
               "color": blue && "white"
-            }} onClick={() => touchlike()}><img src={likes} className='likes'/> like</button>
+            }} onClick={() => touchlike()}><img src={likes} className='likes'/>{blue ?"":"like"}</button>
             <button onClick={() => setMostar(!mostrar)}><img src={coment} className='likes'/>Coments</button>
             {mostrar &&   <div>
-                            <ListComents
-                            user = "Jolfre"
-                            cont = "Altos cracks lo mejor del futbol"
-                            time = "30m"
-                            />
-                            <ListComents
-                            user = "Ana"
-                            cont = "Doy las gracias por haberlos visto jugar❤️"
-                            time = "20m"
-                            />
-                            <ListComents
-                            user = "Raul"
-                            cont = "Cracks absolutos"
-                            time = "1h"
-                            />
                             <FormComent/>
                             </div>
             }
