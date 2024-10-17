@@ -12,17 +12,15 @@ export default function Post() {
     function touchlike(){
       if(!blue){
       setLike((like) => like + 1)
-      setBlue((blue) => true)
+      setBlue(true)
     }else{
       setLike((like) => like -1)
-      setBlue((blue) => false)
+      setBlue(false)
     }
     }
       useEffect(() => {
                   console.log("Cantidad de likes: " + like)
-                  console.log("Like?: " + blue)              
-
-                              },[like,blue])
+                  console.log("Like?: " + blue)},[like,blue])
   return (
     <div>
       <div className="container-post">
@@ -45,9 +43,10 @@ export default function Post() {
               "color": blue && "white"
             }} onClick={() => touchlike()}><img src={likes} className='likes'/>{blue ?"":"like"}</button>
             <button onClick={() => setMostar(!mostrar)}><img src={coment} className='likes'/>Coments</button>
-            {mostrar &&   <div>
-                            <FormComent/>
-                            </div>
+            {mostrar &&   
+            <div>
+            <FormComent/>
+            </div>
             }
         </div>
         </div>

@@ -1,0 +1,14 @@
+.logo-header{
+    width: 100px;
+}
+.icono-buscador{
+    color: white;
+}
+.img-receta img{
+    width: 100%;
+    height: auto;
+    object-fit: none;
+}
+/* .list-group-item{
+    color: aliceblue;
+} */

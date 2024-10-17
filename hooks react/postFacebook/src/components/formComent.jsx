@@ -7,12 +7,14 @@ export default function FormComent() {
   var LC = useContext(ListComentarios)
   const [comment, setComment] = useState("")
   const [commentsList, setCommentsList] = useState([])
-  useEffect(() => {
-               setCommentsList(LC) 
-                },[])
-  useEffect(() => {
-                  console.log(commentsList)
-                   },[commentsList])
+  useEffect(() => 
+    {
+     setCommentsList(LC) 
+    },[])
+  useEffect(() => 
+    {
+      console.log(commentsList)
+    },[commentsList])
 
   const ChangeInput = (event) => {
     setComment(event.target.value)
@@ -24,6 +26,8 @@ export default function FormComent() {
         time : "Hace un momento"
       }])
       setComment("")
+    }else{
+      console.log("El comentario está vacío")
     }
   }
   return (
