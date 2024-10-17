@@ -6,12 +6,16 @@ import Contact from "./pages/Contact";
 import Home from "./pages/home";
 import "./assets/estilos.css";
 import { Route,Routes } from "react-router-dom";
+
 import { RecipesProvider } from "./components/recipeProvider";
+
 
 function App() {
   return (
     <>
+
         <RecipesProvider>
+
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Ours" element={<Ours/>} />
@@ -21,6 +25,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
         </RecipesProvider>
+
     </>
   )
 }
