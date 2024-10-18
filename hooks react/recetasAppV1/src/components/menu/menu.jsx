@@ -1,14 +1,24 @@
-import { Link,NavLink } from "react-router-dom"
-import { useState } from "react"
+import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
 import recetas from "./../../../public/datos.json"
+import { useContext } from "react"
+import { infoContext } from "../recipeProvider"
+let {Arroces,Pastas,Postres,Ensaladas,Sopas} = recetas
+const allRecipes = [...Arroces,...Pastas,...Ensaladas,...Postres,...Sopas]
+console.log(allRecipes)
+  
 
+ 
 
 export default function Menu() {
-  const allRecipes = [...recetas.Arroces,...recetas.Pastas,...recetas.Ensaladas,...recetas.Postres,...recetas.Sopas]
-  console.log(allRecipes)
   const [searchTerm, setSearchTerm] = useState("")
   const filteredProducts = allRecipes.filter(receta => receta.titulo.toLowerCase().includes(searchTerm.toLowerCase()))
   const [isDropdownVisible, setIsDropDownVisible] = useState(false)
+  let {setInfoRecipes} = useContext(infoContext)
+  useEffect(()=>{
+    setInfoRecipes(filteredProducts)
+
+},[])
     return(
         <nav className="sticky-top navbar navbar-expand-sm bg-dark navbar-dark">
         <div className="container">
@@ -41,7 +51,7 @@ export default function Menu() {
                    />
                 
                     <ul className="list-group position-absolute w-100 mt-1">
-                      {isDropdownVisible && (filteredProducts.length > 0 ? (filteredProducts.map((product,index)=><li key={index} className="list-group-item">{product.titulo}</li>)):(<li className="list-group-item">No se encontraron productos</li>))}
+                      {isDropdownVisible && (filteredProducts.length > 0 ? (filteredProducts.map((product,index)=><Link to={`/Recipe/${index}`} key={index} className="list-group-item">{product.titulo}</Link>)):(<li className="list-group-item">No se encontraron productos</li>))}
                     </ul>
                   </div>
 

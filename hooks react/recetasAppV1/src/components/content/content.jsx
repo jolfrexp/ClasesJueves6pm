@@ -18,7 +18,7 @@ useEffect(()=>{
     }
     return(
         <>
-        <div className="col-sm-8">
+        <div className="col-sm-20">
             {recipesRandom.slice(0,dataVisible).map((receta,i)=><Article key={i} id={i} receta={receta}></Article>)}
             {dataVisible < recipesData.length && <button onClick={loadRecipes}>Cargar mas</button>}
         </div>

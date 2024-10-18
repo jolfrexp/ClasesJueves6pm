@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 export default function Aside() {
     return(
         <div className="col-sm-4">
@@ -9,16 +10,19 @@ export default function Aside() {
             <p>Lorem ipsum dolor sit ame.</p>
             <ul className="nav nav-pills flex-column">
             <li className="nav-item">
-                <a className="nav-link active" href="#">Active</a>
+                <Link className="nav-link active" to="/Category/Arroces">Arroces</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <Link className="nav-link" to="/Category/Ensaladas">Ensaladas</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <Link className="nav-link" to="/Category/Pastas">Pasta</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link disabled" href="#">Disabled</a>
+                <Link className="nav-link" to="/Category/Postres">Postres</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/Category/Sopas">Sopas</Link>
             </li>
             </ul>
             <hr className="d-sm-none" />
